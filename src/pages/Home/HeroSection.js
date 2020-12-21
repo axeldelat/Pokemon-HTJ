@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter as
   Route,
   Link,
 } from "react-router-dom";
@@ -11,7 +10,6 @@ export default class HeroSection extends Component {
     return (
       <>
       <Route>
-
         <div className="relative bg-blue-900 overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <div className="relative z-10 pb-8 bg-blue-900 sm:py-16 md:py-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
