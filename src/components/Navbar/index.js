@@ -6,11 +6,14 @@ import {
   Link,
 } from "react-router-dom";
 
+//Components
+import Banner from '../Banner'
+
 // Pages
 import Home from '../../pages/Home'
 import Pokemons from '../../pages/Pokemons/'
 import Register from '../../pages/Register/'
-import Duelists from '../../pages/Duelists';
+import Duels from '../../pages/Duels';
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -18,10 +21,10 @@ export default class Navbar extends Component {
     this.state = {
       navbarOpen: false
     }
-    
+
     this.handleClick = this.handleClick.bind(this)
   }
-  
+
   handleClick() {
     this.setState(state => ({
       navbarOpen: !state.navbarOpen
@@ -32,38 +35,36 @@ export default class Navbar extends Component {
     return (
       <>
         <Router>
-          <div className="relative bg-white">
+        <Banner />
+          <div className="relative bg-blue-900 ">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-              <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+              <div className="flex justify-between items-center  py-6 md:justify-start md:space-x-10">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
                   <span>
-                    <span className="sr-only">Workflow</span>
-                    <img className="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
+                    <Link to="/">
+                      <img className="h-8 w-auto sm:h-10" src="https://www.flaticon.es/svg/static/icons/svg/361/361998.svg" alt="" />
+                    </Link>
                   </span>
                 </div>
                 <div className="-mr-2 -my-2 md:hidden">
                   <button type="button" className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" onClick={this.handleClick}>
-                    <span className="sr-only">Open menu</span>
-                    {/* <!-- Heroicon name: menu --> */}
+                    <span className="sr-only">Abrir Menú</span>
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                   </button>
                 </div>
                 <nav className="hidden md:flex space-x-10">
-                  <span className="text-base font-medium text-gray-500 hover:text-gray-900 cursor-pointer">
+                  <span className="text-base font-medium text-white hover:text-opacity-75 cursor-pointer">
                     <Link to="/">Inicio</Link>
                   </span>
-                  <span className="text-base font-medium text-gray-500 hover:text-gray-900 cursor-pointer">
+                  <span className="text-base font-medium text-white hover:text-opacity-75 cursor-pointer">
                     <Link to="/pokemons">Pokémones</Link>
                   </span>
-                  <span className="text-base font-medium text-gray-500 hover:text-gray-900 cursor-pointer">
-                    <Link to="/duelists">Duelistas</Link>
+                  <span className="text-base font-medium text-white hover:text-opacity-75 cursor-pointer">
+                    <Link to="/duels">Duelos</Link>
                   </span>
                 </nav>
-                <span className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 hidden">
-                  <Link to="/register">Inscríbete</Link>
-                </span>
               </div>
             </div>
 
@@ -77,7 +78,7 @@ export default class Navbar extends Component {
                 From: "opacity-100 scale-100"
                 To: "opacity-0 scale-95"
             --> */}
-            <div 
+            <div
             className={this.state.navbarOpen ? 'rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50' : 'hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50'}
             >
               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
@@ -117,8 +118,8 @@ export default class Navbar extends Component {
               <Route path="/pokemons">
                 <Pokemons />
               </Route>
-              <Route path="/duelists">
-                <Duelists />
+              <Route path="/duels">
+                <Duels />
               </Route>
               <Route path="/register">
                 <Register />
